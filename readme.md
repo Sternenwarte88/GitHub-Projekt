@@ -1,12 +1,15 @@
 # 💻 DevOps Abschlussprojekt – Lokale Infrastruktur für ein Entwicklerteam
 
-Autor: Stefan | Level: Junior DevOps | Ziel: Alle erlernten Tools praxisnah einsetzen und beweisen
+Autor: Stefan  
+Level: Junior DevOps  
+Ziel: Erlernte DevOps-Tools in einem realistischen Praxisprojekt anwenden
 
 ---
 
 ## 🚀 Projektziel
 
-In diesem Projekt baue ich eine komplett lokale DevOps-Infrastruktur auf, die typische Cloud-Funktionen emuliert – ohne AWS oder Azure, aber mit Tools aus der realen Praxis. Ziel ist eine Umgebung, in der Entwickler ihren Code versionieren, testen, containerisieren und in Kubernetes deployen können.
+Dieses Projekt simuliert den Aufbau und Betrieb einer lokalen DevOps-Infrastruktur.  
+Ziel ist es, typische Cloud-Funktionen wie Versionierung, CI/CD, Containerisierung und Kubernetes-Deployment **lokal** umzusetzen – ohne AWS oder Azure, aber mit professionellen Open-Source-Tools.
 
 ---
 
@@ -14,87 +17,74 @@ In diesem Projekt baue ich eine komplett lokale DevOps-Infrastruktur auf, die ty
 
 | Tool           | Zweck                                  |
 |----------------|----------------------------------------|
-| Docker         | Containerisierung                      |
-| Kubernetes     | Orchestrierung (lokal via k3s/kind)    |
+| Docker         | Containerisierung der Anwendung        |
+| Kubernetes     | Orchestrierung (lokal mit k3s/kind)    |
 | Git            | Codeverwaltung                         |
-| GitHub Actions | CI/CD für Linting & Testing            |
-| Jenkins        | Erweiterte CI/CD-Pipeline              |
-| Terraform      | Infrastruktur (VirtualBox + Netzwerke) |
-| Ansible        | Konfiguration & Provisionierung        |
-| VirtualBox     | Lokale virtuelle Maschinen             |
-| Bash / Python  | Automatisierung & Health Checks        |
-| VPC (lokal)    | Segmentierung über Netzwerkinterfaces  |
+| GitHub Actions | CI/CD für Linting & Tests              |
+| Bash / Python  | Healthchecks & Backup-Automatisierung  |
+| MySQL          | Relationale Datenbank für Gästebuch    |
 
 ---
 
 ## 📦 Projektstruktur
 
-.
-├── app/                  # Beispielanwendung (Node.js + MySQL)
-│   ├── backend/          # Gästebuch-App mit Express + MySQL
-│   └── mysql/            # Konfiguration und Seed-SQL
-├── infra/
-│   ├── terraform/        # VM-Provisionierung mit VirtualBox
-│   └── ansible/          # Konfiguration der VMs
-├── kubernetes/
-│   ├── app/              # Deployments, Services, Ingress für App
-│   └── mysql/            # Deployments, PVC, Secrets für MySQL
-├── scripts/              # Bash- und Python-Skripte
-├── jenkins/              # Pipeline-Definitionen
-├── .github/workflows/    # GitHub Actions CI
-└── README.md
+    .  
+    ├── app/                     Beispielanwendung (Node.js + MySQL)  
+    │   ├── backend/             REST-API & statisches Serving  
+    │   └── mysql/               Konfiguration und Seed-SQL  
+    ├── kubernetes/  
+    │   ├── app/                 Deployments, Services, Ingress für App  
+    │   └── mysql/               Deployments, PVC, Secrets für MySQL  
+    ├── scripts/                 Bash- und Python-Skripte (Health/Backup)  
+    ├── .github/workflows/       GitHub Actions CI-Pipeline  
+    └── README.md
 
 ---
 
 ## 🔄 Projektphasen
 
-### ✅ Phase 1 – Infrastruktur mit VirtualBox
-- Erstelle 2–3 VMs via Terraform (dev, ci, optional monitoring)
-- Netzwerk-Setup wie eine VPC: NAT + internes Netz
-- Per Ansible:
-  - Benutzer sloec mit sudo
-  - Docker, Git, Node, Python, Jenkins, k3s installieren
-  - SSH-Härtung, Firewall & Basis-Setup
+### ✅ Phase 1 – Lokale Entwicklung
 
-### ✅ Phase 2 – CI/CD mit GitHub Actions & Jenkins
-- GitHub Actions:
-  - Code-Check, Linting, Tests
-- Jenkins (auf separater VM):
-  - Container-Build + Push in lokale Registry (optional)
-  - Automatisiertes Deployment ins Kubernetes-Cluster
+- Entwicklung einer Gästebuch-App mit Node.js und MySQL
+- Frontend (HTML, CSS, JS) + REST-API im selben Container
 
-### ✅ Phase 3 – Beispiel-App + MySQL
-- Node.js-Backend (Guestbook) mit Dockerfile
-- MySQL-Container mit init.sql und Persistenz via PVC
-- Kubernetes-Deployments für App & DB
-- ConfigMaps für Umgebungsvariablen
-- Secrets für MySQL-Zugang
-- Ingress für Frontend-Zugriff (optional statisches HTML-Formular)
+### ✅ Phase 2 – Dockerisierung
 
-### ✅ Phase 4 – Automatisierung & Security
-- Bash/Python:
-  - Healthcheck-Skript für Kubernetes
-  - Backup-Skript für MySQL-DB oder Jenkins-Konfig
-  - Alerting per Mail/Shell bei Ausfällen
-- Konfigurationshärtung:
-  - SSH
-  - CI/CD Secrets Management
-  - Least Privilege für Jenkins + GitHub
+- Erstellung von Dockerfiles für Backend + DB
+- Nutzung von Docker Compose zum lokalen Testen
+- MySQL persistiert mit Docker Volume
+
+### ✅ Phase 3 – CI/CD mit GitHub Actions
+
+- Einrichtung eines GitHub-Repos mit CI-Workflow
+- Linting, Tests und automatischer Build beim Push
+
+### ✅ Phase 4 – Kubernetes Deployment
+
+- YAML-Definitionen für App, MySQL, Secrets und PVC
+- Ingress-Routing zum Frontend (optional statisch via NGINX)
+- Simulation eines produktionsnahen Deployments mit Minikube oder k3s
+
+### ✅ Phase 5 – Automation & Wartung
+
+- Bash-/Python-Skripte:
+  - Healthchecks für Pod-Zustände
+  - Datenbank-Backups über Cronjob oder Shellscript
 
 ---
 
 ## 🧠 Bonus (optional)
-- Lokale Docker-Registry für Images
-- Monitoring: Prometheus + Grafana
-- Logaggregation mit Loki oder ELK
-- Helm-Chart für App
-- Multi-Environment-Setup: dev / staging / production
+
+- Lokale Docker Registry
+- Helm-Chart für App-Deployment
+- Vorbereitung auf Multi-Environment (dev/staging)
 
 ---
 
 ## 🎯 Ziel
 
-Dieses Projekt zeigt meine Fähigkeit, eine Infrastruktur von Grund auf zu planen, zu automatisieren und produktionsnah zu betreiben – ohne Cloudkosten, aber mit professionellen DevOps-Praktiken. Das Setup ist als Bewerbungsprojekt, Lernbasis und technisches Portfolio gedacht.
+Dieses Projekt zeigt meine Fähigkeit, eine Entwicklungsinfrastruktur lokal zu planen, zu automatisieren und produktionsnah zu betreiben – ohne Cloudkosten, aber mit solider DevOps-Praxis.  
+Es dient als **Lernprojekt, technisches Portfolio und Bewerbungsnachweis**.
 
 ---
 
