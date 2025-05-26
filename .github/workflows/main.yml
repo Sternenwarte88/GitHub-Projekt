@@ -17,6 +17,5 @@ jobs:
       - name: Installiere Node
         uses: actions/setup-node@v4
       - name: Check Lint style
-        run: |
-          cd /app/backend \
-          npm run lint
+        run: npm run lint
+        working-directory: /app/backend/
