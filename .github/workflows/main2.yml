@@ -1,13 +1,16 @@
-name: DevOps Demo Projkt Pipeline
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+name: 🧪 Test Workflow
+
 on:
   push:
-    branches: main
-  workflow_dispatch:
+    branches:
+      - '**'                # Triggert auf allen Branches
+  workflow_dispatch:         # Erlaubt manuellen Start
+
 jobs:
-  Create-Docker_Images:
+  test-job:
+    name: 📦 Einfacher Testjob
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - name: check current work directory
-        run: ls
+      - name: 🛠️ GitHub Actions läuft
+        run: echo "✅ Workflow läuft! Ausgelöst durch ${{ github.event_name }} auf Branch ${{ github.ref }}"
