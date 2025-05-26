@@ -2,7 +2,7 @@ name: 'DevOps Demo Projkt Pipeline'
 on:
   push:
     branches:
-      - main
+      - '**'
   workflow_dispatch:
 
 jobs:
