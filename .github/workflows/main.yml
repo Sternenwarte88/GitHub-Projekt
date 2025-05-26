@@ -15,7 +15,7 @@ jobs:
       - name: check current work directory
         run: ls
       - name: Installiere Node
-        run: sudo apt install node -y
+        uses: actions/setup-node@v4
       - name: Check Lint style
         run: |
           cd /app/backend \
