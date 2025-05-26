@@ -13,5 +13,8 @@
     "mysql2": "^3.9.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "eslint": "^8.x.x"
   }
 }
