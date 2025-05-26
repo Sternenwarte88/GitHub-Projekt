@@ -1,9 +1,9 @@
-name: DevOps Demo Projkt Pipeline
+name: 'DevOps Demo Projkt Pipeline'
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   push:
-    branches: 
-     - main
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
