@@ -1,0 +1,12 @@
+name: DevOps Demo Projkt Pipeline
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on:
+  push:
+    branches: main
+  workflow_dispatch:
+jobs:
+  Create-Docker_Images:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pwd
