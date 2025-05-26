@@ -14,3 +14,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: check current work directory
         run: ls
+      - name: Installiere Node
+        run: apt install node -y
+      - name: Check Lint style
+        run: |
+          cd /app/backend \
+          npm run lint
