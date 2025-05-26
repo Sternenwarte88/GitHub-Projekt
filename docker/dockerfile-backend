@@ -1,6 +1,6 @@
 FROM node:latest
 WORKDIR /app
-COPY ./ ./
+COPY ./app/ ./
 WORKDIR /app/backend
 RUN npm install -y
 EXPOSE 3000
