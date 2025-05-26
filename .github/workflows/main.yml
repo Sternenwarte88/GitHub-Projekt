@@ -9,4 +9,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: pwd
+      - name: check current work directory
+        run: ls
