@@ -17,14 +17,13 @@ Open-Source-Tools.
 
 ## 🧰 Verwendeter Stack
 
-| Tool           | Zweck                                 |
-| -------------- | ------------------------------------- |
-| Docker         | Containerisierung der Anwendung       |
-| Kubernetes     | Orchestrierung (lokal mit k3s/kind)   |
-| Git            | Codeverwaltung                        |
-| GitHub Actions | CI/CD für Linting & Tests             |
-| Bash / Python  | Healthchecks & Backup-Automatisierung |
-| MySQL          | Relationale Datenbank für Gästebuch   |
+| Tool           | Zweck                               |
+| -------------- | ----------------------------------- |
+| Docker         | Containerisierung der Anwendung     |
+| Kubernetes     | Orchestrierung (lokal mit k3s/kind) |
+| Git            | Codeverwaltung                      |
+| GitHub Actions | CI/CD für Linting & Tests           |
+| MySQL          | Relationale Datenbank für Gästebuch |
 
 > Hinweis: Infrastruktur-Provisionierungstools wie Terraform oder Ansible wurden bewusst nicht
 > umgesetzt, da sie in der lokalen Umgebung ohne Cloud oder dedizierte Server nur eingeschränkt
@@ -71,16 +70,4 @@ Open-Source-Tools.
 - Ingress-Routing zum Frontend (optional statisch via NGINX)
 - Deployment und Testing innerhalb der VM (k3s)
 
-### ✅ Phase 5 – Automation & Wartung
-
-- Bash-/Python-Skripte:
-  - Healthchecks für Pod-Zustände
-  - Datenbank-Backups über Cronjob oder Shellscript
-
 ---
-
-## 🧠 Bonus (optional)
-
-- Lokale Docker Registry
-- Helm-Chart für App-Deployment
-- Vorbereitung auf
