@@ -4,5 +4,5 @@ metadata:
   name: mysql-config
   namespace: guestbook
 data:
-  MYSQL_DATABASE: guestbook
-  MYSQL_USER: guestbook_user
+  MYSQL_DATABASE: guestbook_db
+  MYSQL_USER: guestbook
