@@ -18,6 +18,7 @@ spec:
       containers:
         - name: guestbook-backend
           image: wusabinga/projekt-backend:latest
+          imagepullPolicy: Always
           ports:
             - name: guestbook-port
               protocol: TCP
