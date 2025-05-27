@@ -7,10 +7,6 @@ spec:
   selector:
     app: mysql-projekt
   type: ClusterIP
-  sessionAffinity: None
-  sessionAffinityConfig:
-    clientIP:
-      timeoutSeconds: 10800
   ports:
     - name: mysql-projekt
       protocol: TCP
