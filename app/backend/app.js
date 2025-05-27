@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 const db = mysql.createConnection({
-  host: process.env.DB_HOST || 'localhost',
+  host: process.env.DB_HOST || 'guestbook-mysql',
   user: process.env.DB_USER || 'guestbook',
   password: process.env.DB_PASSWORD || 'guestbook',
   database: process.env.DB_NAME || 'guestbook_db'
