@@ -1,73 +1,71 @@
-# 💻 DevOps Abschlussprojekt – Lokale Infrastruktur für ein Entwicklerteam
+# 💻 DevOps Final Project – Local Infrastructure for a Development Team
 
-Autor: Stefan  
+Author: Stefan  
 Level: Junior DevOps  
-Ziel: Erlernte DevOps-Tools in einem realistischen Praxisprojekt anwenden
+Goal: Apply the DevOps tools you have learned in a realistic, hands-on project
 
 ---
 
-## 🚀 Projektziel
+## 🚀 Project Goal
 
-Dieses Projekt simuliert den Aufbau und Betrieb einer lokalen DevOps-Infrastruktur.  
-Ziel ist es, typische Cloud-Funktionen wie Versionierung, CI/CD, Containerisierung und
-Kubernetes-Deployment **lokal** umzusetzen – ohne AWS oder Azure, aber mit professionellen
-Open-Source-Tools.
+This project simulates the setup and operation of a local DevOps infrastructure.  
+The goal is to implement typical cloud functions such as version control, CI/CD, containerization and Kubernetes deployment **locally** – without AWS or Azure, but using professional open-source tools.
 
 ---
 
-## 🧰 Verwendeter Stack
+## 🧰 Tech Stack Used
 
-| Tool           | Zweck                               |
-| -------------- | ----------------------------------- |
-| Docker         | Containerisierung der Anwendung     |
-| Kubernetes     | Orchestrierung (lokal mit k3s/kind) |
-| Git            | Codeverwaltung                      |
-| GitHub Actions | CI/CD für Linting & Tests           |
-| MySQL          | Relationale Datenbank für Gästebuch |
+| Tool           | Purpose                                   |
+| -------------- | ----------------------------------------- |
+| Docker         | Containerization of the application       |
+| Kubernetes     | Orchestration (locally with k3s/kind)     |
+| Git            | Source code management                    |
+| GitHub Actions | CI/CD for linting and tests               |
+| MySQL          | Relational database for the guestbook app |
 
-> Hinweis: Infrastruktur-Provisionierungstools wie Terraform oder Ansible wurden bewusst nicht
-> umgesetzt, da sie in der lokalen Umgebung ohne Cloud oder dedizierte Server nur eingeschränkt
-> sinnvoll demonstrierbar sind.
+> Note: Infrastructure provisioning tools such as Terraform or Ansible were intentionally not implemented, because in a purely local environment without cloud or dedicated servers they can only be demonstrated in a limited way.
 
 ---
 
-## 📦 Projektstruktur
+## 📦 Project Structure
 
-    .
-    ├── app/ Beispielanwendung (Node.js + MySQL)
-    │ ├── backend/ REST-API & statisches Serving
-    │ └── mysql/ Konfiguration und Seed-SQL
-    ├── kubernetes/
-    │ ├── app/ Deployments, Services, Ingress für App
-    │ └── mysql/ Deployments, PVC, Secrets für MySQL
-    ├── scripts/ Bash- und Python-Skripte (Health/Backup)
-    ├── .github/workflows/ GitHub Actions CI-Pipeline
-    └── README.md
+```
+.
+├── app/                  Example application (Node.js + MySQL)
+│   ├── backend/          REST API & static file serving
+│   └── mysql/            Configuration and seed SQL
+├── kubernetes/
+│   ├── app/              Deployments, Services, Ingress for the app
+│   └── mysql/            Deployments, PVC, Secrets for MySQL
+├── scripts/              Bash and Python scripts (health/backup)
+├── .github/workflows/    GitHub Actions CI pipeline
+└── README.md
+```
 
 ---
 
-## 🔄 Projektphasen
+## 🔄 Project Phases
 
-### ✅ Phase 1 – Lokale Entwicklung
+### ✅ Phase 1 – Local Development
 
-- Entwicklung einer Gästebuch-App mit Node.js und MySQL
-- Frontend (HTML, CSS, JS) + REST-API im selben Container
+- Develop a guestbook app with Node.js and MySQL
+- Frontend (HTML, CSS, JS) + REST API in the same container
 
-### ✅ Phase 2 – Dockerisierung
+### ✅ Phase 2 – Dockerization
 
-- Erstellung von Dockerfiles für Backend + DB
-- Nutzung von Docker Compose zum lokalen Testen
-- MySQL persistiert mit Docker Volume
+- Create Dockerfiles for backend and database
+- Use Docker Compose for local testing
+- Persist MySQL using a Docker volume
 
-### ✅ Phase 3 – CI/CD mit GitHub Actions
+### ✅ Phase 3 – CI/CD with GitHub Actions
 
-- Einrichtung eines GitHub-Repos mit CI-Workflow
-- Linting, Tests und automatischer Build beim Push
+- Set up a GitHub repository with a CI workflow
+- Linting, tests and automatic build on push
 
 ### ✅ Phase 4 – Kubernetes Deployment
 
-- YAML-Definitionen für App, MySQL, Secrets und PVC
-- Ingress-Routing zum Frontend (optional statisch via NGINX)
-- Deployment und Testing innerhalb der VM (k3s)
+- YAML definitions for app, MySQL, secrets and PVC
+- Ingress routing to the frontend (optionally static via NGINX)
+- Deployment and testing inside the VM (k3s)
 
 ---
