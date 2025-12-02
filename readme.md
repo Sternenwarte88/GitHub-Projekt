@@ -1,6 +1,6 @@
 # 💻 DevOps Final Project – Local Infrastructure for a Development Team
 
-Author: Stefan  
+Author: Stephan  
 Level: Junior DevOps  
 Goal: Apply the DevOps tools you have learned in a realistic, hands-on project
 
